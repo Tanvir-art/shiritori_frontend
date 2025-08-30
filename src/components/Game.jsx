@@ -1,4 +1,4 @@
-import   { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import WordHistory from "./WordHistory";
 
@@ -39,10 +39,10 @@ const Game = () => {
       if (res.data.valid) {
         setLastWord(currentWord);
         setScores({ ...scores, [player]: scores[player] + 1 });
-        setMessage(` Player ${player} is correct!`);
+        setMessage(`Player ${player} is correct!`);
       } else {
         setScores({ ...scores, [player]: scores[player] - 1 });
-        setMessage(` Player ${player} is wrong! ${res.data.reason}`);
+        setMessage(`Player ${player} is wrong! ${res.data.reason}`);
       }
 
       const histRes = await axios.get("http://localhost:5000/history");
@@ -52,6 +52,23 @@ const Game = () => {
       else setWordP2("");
 
       setPlayer(player === 1 ? 2 : 1);
+      setTimer(15);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  //  New reset function
+  const handleReset = async () => {
+    try {
+      await axios.post("http://localhost:5000/reset");
+      setWordP1("");
+      setWordP2("");
+      setLastWord("a");
+      setScores({ 1: 0, 2: 0 });
+      setHistory([]);
+      setMessage("Game has been reset!");
+      setPlayer(1);
       setTimer(15);
     } catch (err) {
       console.log(err);
@@ -102,12 +119,21 @@ const Game = () => {
           </div>
         </div>
 
-        <button
-          onClick={handleSubmit}
-          className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition duration-300"
-        >
-          Submit
-        </button>
+        <div className="flex gap-4">
+          <button
+            onClick={handleSubmit}
+            className="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg transition duration-300"
+          >
+            Submit
+          </button>
+          {/*  Reset button */}
+          <button
+            onClick={handleReset}
+            className="flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-3 rounded-lg transition duration-300"
+          >
+            Reset
+          </button>
+        </div>
 
         {message && <p className="mt-4 text-center text-lg">{message}</p>}
       </div>
