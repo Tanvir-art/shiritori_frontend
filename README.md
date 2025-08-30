@@ -1,12 +1,49 @@
-# React + Vite
+# Shiritori Game Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the **frontend** for the multiplayer Shiritori game, built with **React.js** and **Tailwind CSS**.  
+It connects to a backend API to validate words, track history, and manage scores.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
 
-## Expanding the ESLint configuration
+- [Features](#features)  
+- [Installation](#installation)  
+- [Usage](#usage)  
+- [Game Mechanics](#game-mechanics)  
+- [Components](#components)  
+- [Styling](#styling)  
+- [License](#license)  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Features
+
+- Two-player turn-based Shiritori game  
+- Word validation via backend API  
+- Score tracking for each player  
+- Countdown timer for each turn (15 seconds)  
+- Word history display  
+- Reset button to start a new game  
+- Fully responsive UI with Tailwind CSS  
+
+---
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Tanvir-art/shiritori_frontend.git
+cd shiritori_frontend
+npm install
+npm run start
+```
+
+## Usage
+Enter a word in your turn that starts with the last letter of the previous word.
+Minimum word length is 4 letters.
+Points are awarded for correct words and deducted for wrong words.
+Click Submit to validate the word.
+Click Reset to restart the game.
+Word history is displayed at the bottom.
