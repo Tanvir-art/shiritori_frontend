@@ -9,11 +9,9 @@ It connects to a backend API to validate words, track history, and manage scores
 
 - [Features](#features)  
 - [Installation](#installation)  
-- [Usage](#usage)  
-- [Game Mechanics](#game-mechanics)  
-- [Components](#components)  
-- [Styling](#styling)  
-- [License](#license)  
+- [Usage](#usage)   
+ 
+  
 
 ---
 
@@ -41,9 +39,9 @@ npm run start
 ```
 
 ## Usage
-Enter a word in your turn that starts with the last letter of the previous word.
-Minimum word length is 4 letters.
-Points are awarded for correct words and deducted for wrong words.
-Click Submit to validate the word.
-Click Reset to restart the game.
-Word history is displayed at the bottom.
+1. Enter a word in your turn that starts with the last letter of the previous word.
+2. Minimum word length is 4 letters.
+3. Points are awarded for correct words and deducted for wrong words.
+4. Click Submit to validate the word.
+5. Click Reset to restart the game.
+6. Word history is displayed at the bottom.
